@@ -8,9 +8,9 @@ namespace Lab4.Part1
 {
     public class HumanPasswordGenerator
     {
-        private List<string> names = FillListFromFile("C:\\Users\\user\\RiderProjects\\Lab4\\Lab4\\Files\\Names.txt");
-        private List<string> words = FillListFromFile("C:\\Users\\user\\RiderProjects\\Lab4\\Lab4\\Files\\Names.txt");
-        private List<string> keyboard = FillListFromFile("C:\\Users\\user\\RiderProjects\\Lab4\\Lab4\\Files\\Keyboard.txt");
+        private List<string> names = FillListFromFile("../../../Files/Names.txt");
+        private List<string> words = FillListFromFile("../../../Files/Words.txt");
+        private List<string> keyboard = FillListFromFile("../../../Files/Keyboard.txt");
         private string symbols = "!@#$%^&*-_";
         private Dictionary<char, char> replace = new Dictionary<char, char>()
         {

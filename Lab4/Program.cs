@@ -8,26 +8,45 @@ namespace Lab4
     class Program
     {
         public static void Main(string[]args)
-        {
-            StreamWriter sw = new StreamWriter("C:\\Users\\user\\RiderProjects\\Lab4\\Lab4\\Files\\Passwords.txt");
-            HumanPasswordGenerator gen = new ();
-            List<string> passwords = new (); 
-            Random random = new Random();
-            for (int i = 0; i < 100000; i++)
+        { /*StreamWriter sw = new StreamWriter("../../../Files/Passwords.txt");
+            Generator gen = new Generator();
+            List<string> passwords = gen.Generate();
+            
+            foreach (var password in passwords)
             {
-                string password = gen.Generate();
                 sw.WriteLine(password);
-                passwords.Add(password);
-
             }
-            sw.Close();
+        
+            sw.Close();*/
 
+
+            List<string> passwords = readPasswords("../../../Files/Passwords.txt");
             HasherMD5 md5 = new();
             md5.hashPasswords(passwords);
 
             SHA_1 sha = new SHA_1();
             sha.hashPasswords(passwords);
 
+            /*HasherBCrypt bc = new HasherBCrypt();
+            bc.hashPasswords(passwords);*/
+        }
+
+        public static List<string> readPasswords(string fileName)
+        {
+            List<string> passwords = new List<string>();
+            StreamReader sr = new StreamReader(fileName);
+
+            while (!sr.EndOfStream)
+            {
+                string password = sr.ReadLine();
+                if (password.Length > 0)
+                {
+                    passwords.Add(password);
+                }
+            }
+
+            sr.Close();
+            return passwords;
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Lab4.Part1
         public void hashPasswords(List<String> passwords)
         {
             StreamWriter sw =
-                new StreamWriter("C:\\Users\\user\\RiderProjects\\Lab4\\Lab4\\HashedPasswords\\HashedMD5.csv");
+                new StreamWriter("../../../HashedPasswords/HashedMD5.csv");
             for (int i = 0; i < passwords.Count; i++)
             {
                 byte[] hash = md5.ComputeHash(Encoding.UTF8.GetBytes(passwords[i]));
